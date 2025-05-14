@@ -1,26 +1,42 @@
 ﻿// See https://aka.ms/new-console-template for more information
-class Rectangle {
-    public int Length { get; set; }
-    public int Width { get; set; }
-
-    public Rectangle(int length, int width) {
-        Length = length;
-        Width = width;
+using System;
+class pet {
+    public String name {get;set;}
+    public int age {get;set;}
+    public String Sould {get;set;}
+    public pet(String name, int age, String Sould){
+        this.name = name;
+        this.age = age;
+        this.Sould = Sould;
     }
-
-    public int Area() {
-        return Length * Width;
+  }
+  class dog :pet{
+    public dog(String name, int age, String Sould) : base(name, age, Sould){
+        this.name = name;
+        this.age = age;
+        this.Sould = Sould;
     }
-    public int Perimeter() {
-        return 2 * (Length + Width);
+    public void bark(){
+        Console.WriteLine("Bark");
     }
-    public void Display() {
-        Console.WriteLine($"Length: {Length}, Width: {Width}");
-        Console.WriteLine($"Area: {Area()}");
-        Console.WriteLine($"Perimeter: {Perimeter()}");
+  }
+  class cat :pet{
+    public cat(String name, int age, String Sould) : base(name, age, Sould){
+        this.name = name;
+        this.age = age;
+        this.Sould = Sould;
     }
-    public void Main(string[] args) {
-        Rectangle rect = new Rectangle(5, 10);
-        rect.Display();
+    public void meow(){
+        Console.WriteLine("Meow");
     }
+  }
+class Program{
+  static void Main(string[] args){
+    dog d = new dog("dog", 2, "bark");
+    cat c = new cat("cat", 3, "meow");
+    Console.WriteLine(d.name + " " + d.age + " " + d.Sould);
+    Console.WriteLine(c.name + " " + c.age + " " + c.Sould);
+    d.bark();
+    c.meow();
+  }
 }
